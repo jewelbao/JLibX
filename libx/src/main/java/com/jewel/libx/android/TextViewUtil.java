@@ -1,5 +1,6 @@
 package com.jewel.libx.android;
 
+import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -110,6 +111,7 @@ public final class TextViewUtil {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     private static void setDrawableRelative(TextView view, @DrawableRes int drawableId, @Constant.Direction int direction, int left, int top, int right, int bottom) {
         Drawable drawable = Resources.getSystem().getDrawable(drawableId);
@@ -172,6 +174,7 @@ public final class TextViewUtil {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private static void setDrawableRelative(TextView view, @DrawableRes int drawableId, @Constant.Direction int direction) {
         switch (direction) {
@@ -190,6 +193,7 @@ public final class TextViewUtil {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private static void setDrawableRelative(TextView view, Drawable drawable, @Constant.Direction int direction) {
         switch (direction) {
