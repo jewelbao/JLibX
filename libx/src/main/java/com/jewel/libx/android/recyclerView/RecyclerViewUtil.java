@@ -31,7 +31,7 @@ public final class RecyclerViewUtil {
     public static void setupListView(RecyclerView view, RecyclerView.Adapter adapter, boolean horizontal, @ColorRes int colorRes, int dividerWidth) {
         final Context context = view.getContext();
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
-        layoutManager.setOrientation(horizontal ? LinearLayoutManager.HORIZONTAL : LinearLayoutManager.VERTICAL);
+        layoutManager.setOrientation(horizontal ? RecyclerView.HORIZONTAL : RecyclerView.VERTICAL);
         view.setLayoutManager(layoutManager);
 
         Paint paint = new Paint();
@@ -51,7 +51,7 @@ public final class RecyclerViewUtil {
     public static void setupGridView(RecyclerView view, RecyclerView.Adapter adapter, boolean horizontal, int spanCount, int spacing, int lastDividerSize) {
         final Context context = view.getContext();
         GridLayoutManager layoutManager = new GridLayoutManager(context, spanCount);
-        layoutManager.setOrientation(horizontal ? LinearLayoutManager.HORIZONTAL : LinearLayoutManager.VERTICAL);
+        layoutManager.setOrientation(horizontal ? RecyclerView.HORIZONTAL : RecyclerView.VERTICAL);
         view.setLayoutManager(layoutManager);
         view.setHasFixedSize(true);
 
@@ -62,7 +62,7 @@ public final class RecyclerViewUtil {
     public static void setupHorizontalListView(RecyclerView view, RecyclerView.Adapter adapter, int dividerWidth) {
         final Context context = view.getContext();
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         view.setLayoutManager(layoutManager);
 
         // 设置间隔
