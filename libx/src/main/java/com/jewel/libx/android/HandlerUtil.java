@@ -19,7 +19,6 @@ import android.os.Handler;
 import android.os.Looper;
 
 /**
- * Handler工具，简化你的代码
  * @author Jewel
  * @version 1.0
  * @since 2018/06/15
@@ -30,24 +29,43 @@ public class HandlerUtil {
     private static final Handler HANDLER = new Handler(Looper.getMainLooper());
 
     /**
-     * Run on ui thread
+     * Causes the Runnable to be added to the message queue. The runnable will be run on the thread to which this handler is attached
+     *
+     * @return Returns true if the Runnable was successfully placed in to the message queue. Returns false on failure, usually because the looper processing the message queue is exiting
      */
-    public static void runOnUiThread(Runnable runnable) {
-        HANDLER.post(runnable);
+    public static boolean runOnUiThread(Runnable runnable) {
+        return HANDLER.post(runnable);
     }
 
     /**
-     * Run on ui thread delay
+     * Causes the Runnable r to be added to the message queue, to be run after the specified amount of time elapses. The runnable will be run on the thread to which this handler is attached.
+     *
+     * @return Returns true if the Runnable was successfully placed in to the message queue. Returns false on failure, usually because the looper processing the message queue is exiting. Note that a result of true does not mean the Runnable will be processed -- if the looper is quit before the delivery time of the message occurs then the message will be dropped.
      */
-    public static void runOnUiThreadDelay(Runnable runnable, long delayMillis) {
-        HANDLER.postDelayed(runnable, delayMillis);
+    public static boolean runOnUiThreadDelay(Runnable runnable, long delayMillis) {
+        return HANDLER.postDelayed(runnable, delayMillis);
     }
 
     /**
-     * Remove runnable
+     * Remove any pending posts of Runnable r that are in the message queue.
      */
-    public static void removeRunable(Runnable runnable) {
+    public static void removeRunnable(Runnable runnable) {
         HANDLER.removeCallbacks(runnable);
     }
 
+    /**
+     * Remove any pending posts of messages with code 'what' that are in the message queue.
+     */
+    public static void removeMessages(int what) {
+        HANDLER.removeMessages(what);
+    }
+
+    /**
+     * Remove all callbacks and messages
+     */
+    public static void removeAll() {
+        HANDLER.removeCallbacksAndMessages(null);
+    }
+
 }
+

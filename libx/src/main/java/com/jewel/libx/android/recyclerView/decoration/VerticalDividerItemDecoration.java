@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * 垂直方向的Divider
+ * Vertical Divider
  *
  * @author Kevin
  * @version 1.0
@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 @SuppressWarnings("ALL")
 public class VerticalDividerItemDecoration extends RecycleViewDivider {
+
 
     private MarginProvider mMarginProvider;
     private int spanCount = -1;
@@ -65,7 +66,7 @@ public class VerticalDividerItemDecoration extends RecycleViewDivider {
             if (spanCount == -1) {
                 spanCount = ((GridLayoutManager) parent.getLayoutManager()).getSpanCount();
             }
-            if (position % spanCount != spanCount - 1) {  // 普通grid边上不画
+            if (position % spanCount != spanCount - 1) {  // Do not draw the edge of the ordinary grid
                 outRect.set(0, 0, getDividerSize(position, parent), 0);
             }
         } else {

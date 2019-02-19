@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 系统权限请求封装
  * @author Jewel
  * @version 1.0
  * @since 2018/09/25
@@ -35,20 +34,11 @@ public final class PermissionUtil {
         }
 
         if (!disallowPermissions.isEmpty()) {
-            //弹出对话框接收权限  
+            //Pop-up dialog box receiving permission 
             ActivityCompat.requestPermissions(context, disallowPermissions.toArray(new String[]{}), 1);
         } else {
             if(allowPermissionRunnable != null) {
                 allowPermissionRunnable.run();
-            }
-        }
-    }
-
-    private void checkPermission(Activity context, String permission) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int checkPermission = PermissionChecker.checkSelfPermission(context.getApplicationContext(), permission);
-            if (PackageManager.PERMISSION_GRANTED != checkPermission) {
-                disallowPermissions.add(permission);
             }
         }
     }
@@ -67,6 +57,15 @@ public final class PermissionUtil {
         } else {
             if (disallowPermissionRunnable != null) {
                 disallowPermissionRunnable.run();
+            }
+        }
+    }
+
+    private void checkPermission(Activity context, String permission) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int checkPermission = PermissionChecker.checkSelfPermission(context.getApplicationContext(), permission);
+            if (PackageManager.PERMISSION_GRANTED != checkPermission) {
+                disallowPermissions.add(permission);
             }
         }
     }

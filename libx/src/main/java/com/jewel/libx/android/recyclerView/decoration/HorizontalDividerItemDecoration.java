@@ -3,14 +3,14 @@ package com.jewel.libx.android.recyclerView.decoration;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.view.View;
+
 import androidx.annotation.DimenRes;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
-
 /**
- * 水平方向的Divider
+ * Horizontal Divider
  * @author Kevin
  * @version 1.0
  * @since 2015/9/25
