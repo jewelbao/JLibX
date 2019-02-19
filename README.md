@@ -1,6 +1,6 @@
 # **JLib  For AndroidX**
 
-<a href='https://bintray.com/jewelbao88/ComponentsMaven/JLibX?source=watch' alt='Get automatic notifications about new "JLibX" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
+[ ![Download](https://api.bintray.com/packages/jewelbao88/ComponentsMaven/JLibX/images/download.svg) ](https://bintray.com/jewelbao88/ComponentsMaven/JLibX/_latestVersion)
 ## 介绍
  androidX、java工具类集合
 
