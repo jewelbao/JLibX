@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * @gitsite https://github.com/jewelbao
  * @since 2019/2/19
  */
-@SuppressWarnings("unused")
+
 public abstract class SimpleAdapter<T> extends RecyclerView.Adapter<SimpleViewHolder> {
 
     public static final int ITEM_VIEW_TYPE_NONE = -10;
