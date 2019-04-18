@@ -1,8 +1,10 @@
-package com.jewel.libx;
+package com.jewel.libx.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.jewel.libx.sample.R;
 
 public class MainActivity extends AppCompatActivity {
 
