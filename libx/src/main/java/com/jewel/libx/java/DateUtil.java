@@ -10,6 +10,7 @@ import java.util.Locale;
 public class DateUtil {
 
     /**
+     * date转时间字符串
      * @param data       Date type time
      * @param formatType The format is yyyy-MM-dd HH:mm:ss//yyyy MM month dd day HH hour mm ss seconds
      */
@@ -18,7 +19,7 @@ public class DateUtil {
     }
 
     /**
-     *
+     * long时间转时间字符串
      * @param currentTime The time of the long type to be converted
      * @param formatType The format is yyyy-MM-dd HH:mm:ss//yyyy MM month dd day HH hour mm ss seconds
      */
@@ -28,7 +29,7 @@ public class DateUtil {
     }
 
     /**
-     *
+     * 时间字符串转date
      * @param strTime The time of the string type to be converted, the time format of strTime must be the same as the time format of formatType
      * @param formatType The format to be converted yyyy-MM-dd HH:mm:ss//yyyy year MM month dd day HH hour mm minute ss seconds
      */
@@ -44,7 +45,7 @@ public class DateUtil {
     }
 
     /**
-     *
+     * long时间转date
      * @param currentTime The time of the long type to be converted
      * @param formatType Time format to be converted yyyy-MM-dd HH:mm:ss//yyyy year MM month dd day HH hour mm minute ss seconds
      */
@@ -55,7 +56,7 @@ public class DateUtil {
     }
 
     /**
-     *
+     * 字符串时间转long时间
      * @param strTime The time of the String type to be converted
      * @param formatType Time format to be converted yyyy-MM-dd HH:mm:ss//yyyy year MM month dd day HH hour mm minute ss seconds
      */
@@ -69,6 +70,7 @@ public class DateUtil {
     }
 
     /**
+     * date转long时间
      * @param date The time of the Date type to be converted
      */
     public static long dateToLong(Date date) {

@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.jewel.libx.android.CompatUtil;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import androidx.annotation.IntRange;
 import androidx.annotation.StringRes;
 
@@ -74,5 +77,18 @@ public final class StringUtil {
             format.append("%s");
         }
         return format.toString();
+    }
+
+    /**
+     * 判断是否为汉字
+     * @return <code>true</code>表示为汉字
+     */
+    public static boolean isChinese(String sequence) {
+        final String format = "[\\u4E00-\\u9FA5\\uF900-\\uFA2D]";
+        boolean result = false;
+        Pattern pattern = Pattern.compile(format);
+        Matcher matcher = pattern.matcher(sequence);
+        result = matcher.find();
+        return result;
     }
 }
