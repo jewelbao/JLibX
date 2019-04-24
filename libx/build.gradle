@@ -1,4 +1,19 @@
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
+
+publish {
+    def groupProjectID = 'com.jewel.libx'
+    def artifactProjectID = 'JLibX'
+    def publishVersionID = '1.0.4'
+
+    userOrg = 'jewelbao88'
+    repoName = 'ComponentsMaven'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'a tool for androidX'
+    website = 'https://github.com/jewelbao/JLibX'
+}
 
 android {
     compileSdkVersion 28
@@ -38,4 +53,4 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
 
-apply from: "../bintrayPlugin2.gradle"
+//apply from: "../bintrayPlugin2.gradle"
