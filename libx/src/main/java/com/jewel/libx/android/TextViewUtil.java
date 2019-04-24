@@ -207,4 +207,30 @@ public final class TextViewUtil {
                 break;
         }
     }
+
+    /**
+     * 根据屏幕大小设置字体
+     * 适应不同Android手机屏幕大小：240*320，320*480，480*800，480*854，540*960，800*1200，800*1280
+     */
+    public static int adjustFontSize(int screenWidth, int screenHeight) {
+        if (screenWidth <= 240) {
+            // 240*320 屏幕
+            return 10;
+        } else if (screenWidth <= 320) {
+            // 320*480 屏幕
+            return 14;
+        } else if (screenWidth <= 480) {
+            // 480*800 或 480*854 屏幕
+            return 24;
+        } else if (screenWidth <= 540) {
+            // 540*960 屏幕
+            return 26;
+        } else if (screenWidth <= 800) {
+            // 800*1280 屏幕
+            return 30;
+        } else {
+            // 大于 800*1280
+            return 30;
+        }
+    }
 }

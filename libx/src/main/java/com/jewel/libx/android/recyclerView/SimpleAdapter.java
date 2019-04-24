@@ -262,7 +262,7 @@ public abstract class SimpleAdapter<T> extends RecyclerView.Adapter<SimpleViewHo
 
     private void onItemViewClickListener(RecyclerView.ViewHolder viewHolder) {
         if (itemClickListener != null) {
-            int clickedDataPos = viewHolder.getLayoutPosition() % getData().size() - getHeadersCount();
+            int clickedDataPos = viewHolder.getAdapterPosition() - getHeadersCount();
             itemClickListener.onItemClicked(viewHolder.itemView, getData().get(clickedDataPos), clickedDataPos);
         }
     }

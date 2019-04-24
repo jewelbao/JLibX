@@ -1,2 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jewel.libx" />
+    package="com.jewel.libx" >
+    <uses-permission android:name= "android.permission.WAKE_LOCK" />
+    <uses-permission android:name= "android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name= "android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>

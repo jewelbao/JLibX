@@ -1,19 +1,19 @@
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
 
-publish {
-    def groupProjectID = 'com.jewel.libx'
-    def artifactProjectID = 'JLibX'
-    def publishVersionID = '1.0.4'
-
-    userOrg = 'jewelbao88'
-    repoName = 'ComponentsMaven'
-    groupId = groupProjectID
-    artifactId = artifactProjectID
-    publishVersion = publishVersionID
-    desc = 'a tool for androidX'
-    website = 'https://github.com/jewelbao/JLibX'
-}
+//publish {
+//    def groupProjectID = 'com.jewel.libx'
+//    def artifactProjectID = 'JLibX'
+//    def publishVersionID = '1.0.4'
+//
+//    userOrg = 'jewelbao88'
+//    repoName = 'ComponentsMaven'
+//    groupId = groupProjectID
+//    artifactId = artifactProjectID
+//    publishVersion = publishVersionID
+//    desc = 'a tool for androidX'
+//    website = 'https://github.com/jewelbao/JLibX'
+//}
 
 android {
     compileSdkVersion 28
@@ -21,8 +21,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 6
-        versionName "1.0.4"
+        versionCode 7
+        versionName "1.0.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
