@@ -1,6 +1,11 @@
 package com.jewel.libx;
 
+import android.content.Context;
+
 import org.junit.Test;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -12,6 +17,9 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        for(int i = 10; i < 100;){
+            i = i + (i>>1);
+            System.out.println(i);
+        }
     }
 }
