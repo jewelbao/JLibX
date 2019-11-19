@@ -1,11 +1,12 @@
 package com.jewel.libx.android;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 import android.os.Build;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 /**
  * @author jewel
@@ -17,61 +18,51 @@ import java.lang.reflect.Method;
 public class StatusBarUtil {
 
     /**
-     * 获取状态栏高度
+     * 将状态栏和导航栏调暗
      */
-    public static int getStatusBarHeight(Context context) {
-        Class<?> c;
-        Object obj;
-        Field field;
-        int x;
-        int statusBarHeight = 0;
-        try {
-            c = Class.forName("com.android.internal.R$dimen");
-            obj = c.newInstance();
-            field = c.getField("status_bar_height");
-            x = Integer.parseInt(field.get(obj).toString());
-            statusBarHeight = context.getResources().getDimensionPixelSize(x);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-        return statusBarHeight;
+    public static void dimStatusBar(Activity activity) {
+        View decorView = activity.getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_LOW_PROFILE;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     /**
-     * 收起状态栏
+     * 清除状态栏和导航栏所有状态
      */
-    public static void collapseStatusBar(Context ctx) {
-        Object sbservice = ctx.getSystemService("statusbar");
-        try {
-            Class<?> statusBarManager = Class.forName("android.app.StatusBarManager");
-            Method collapse;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                collapse = statusBarManager.getMethod("collapsePanels");
-            } else {
-                collapse = statusBarManager.getMethod("collapse");
-            }
-            collapse.invoke(sbservice);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static void resetStatusBar(Activity activity) {
+        View decorView = activity.getWindow().getDecorView();
+        decorView.setSystemUiVisibility(0);
+    }
+
+    /**
+     * 隐藏状态栏--全屏显示
+     */
+    public static void hideStatusBar(Activity activity) {
+        Window window = activity.getWindow();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        } else {
+            View decorView = window.getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(uiOptions);
         }
     }
 
     /**
-     * 展开状态栏
+     * 沉浸状态栏--应用的内容显示在状态栏后面
+     * <br>
+     * activity的布局文件中的根布局需要设置属性：
+     * <pre> android:fitsSystemWindows="true"</pre>
+     * <br>
+     * style文件中需要设置属性：
+     * <pre> android:windowTranslucentStatus="true"</pre>
      */
-    public static void expandStatusBar(Context ctx) {
-        Object sbservice = ctx.getSystemService("statusbar");
-        try {
-            Class<?> statusBarManager = Class.forName("android.app.StatusBarManager");
-            Method expand;
-            if (Build.VERSION.SDK_INT >= 17) {
-                expand = statusBarManager.getMethod("expandNotificationsPanel");
-            } else {
-                expand = statusBarManager.getMethod("expand");
-            }
-            expand.invoke(sbservice);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static void immersiveStatusBar(Activity activity, ViewGroup rootView) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            View decorView = activity.getWindow().getDecorView();
+            rootView.setFitsSystemWindows(true);
+            int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
         }
     }
 }
